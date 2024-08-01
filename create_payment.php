@@ -1,7 +1,9 @@
 <?php
-$config = include('config.php');
+include('dbcon.php');
 
-function create_payment($config) {
+$config = include('config.php'); // Ensure this line correctly includes config.php
+
+function create_payment($config, $conn) {
     $txnid = substr(md5(uniqid(rand(), true)), 0, 40);
     $url = $config['base_url'] . $txnid . '/post';
     $data = [
@@ -56,11 +58,17 @@ function create_payment($config) {
     // Decode JSON response
     $response_data = json_decode($body, true);
     if (isset($response_data['Url'])) {
+        // Insert the transaction into the database
+        $stmt = $conn->prepare("INSERT INTO transactions (txnid, refno, status, amount, ccy, procid) VALUES (?, ?, 'P', ?, ?, ?)");
+        $stmt->bind_param("sssss", $txnid, $response_data['RefNo'], $data['Amount'], $data['Currency'], $data['ProcId']);
+        $stmt->execute();
+        $stmt->close();
+
         header('Location: ' . $response_data['Url']);
     } else {
         die("Error: " . $body);
     }
 }
 
-create_payment($config);
+create_payment($config, $conn);
 ?>

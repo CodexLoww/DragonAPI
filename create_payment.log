@@ -1,0 +1,26 @@
+Response data: Array
+(
+    [RefNo] => 6ADJYYS996
+    [Status] => S
+    [Message] => Successfully created refno
+    [Url] => https://test-ui.dragonpay.ph/payments/6ADJYYS996
+)
+
+Insertion result=OK, affected rows: 1
+Response data: Array
+(
+    [RefNo] => ZAHKKLYAE6
+    [Status] => S
+    [Message] => Successfully created refno
+    [Url] => https://test-ui.dragonpay.ph/payments/ZAHKKLYAE6
+)
+
+Insertion result=OK, affected rows: 1
+Response data: Array
+(
+    [RefNo] => ALU7EC7N31
+    [Status] => S
+    [Message] => Successfully created refno
+    [Url] => https://test-ui.dragonpay.ph/payments/ALU7EC7N31
+)
+

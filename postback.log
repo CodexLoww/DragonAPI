@@ -1,0 +1,68 @@
+Received parameters:
+txn_id: 0dfcac70a5141446fdc6685d806d1e89
+ref_no: E3ULBVV6Z3
+status: S
+message: Test Over the Counter 2
+amount: 6666.00
+ccy: PHP
+procid: bogx
+result=OK
+Received parameters:
+txn_id: 0dfcac70a5141446fdc6685d806d1e89
+ref_no: E3ULBVV6Z3
+status: S
+message: Test Over the Counter 2
+amount: 6666.00
+ccy: PHP
+procid: 
+Transaction not found.
+Received parameters:
+txn_id: 0dfcac70a5141446fdc6685d806d1e89
+ref_no: E3ULBVV6Z3
+status: S
+message: Test Over the Counter 2
+amount: 6666.00
+ccy: PHP
+procid: 
+Transaction not found.
+Received parameters:
+txn_id: 0dfcac70a5141446fdc6685d806d1e89
+ref_no: E3ULBVV6Z3
+status: S
+message: Test Over the Counter 2
+amount: 6666.00
+ccy: PHP
+procid: 
+Transaction not found.
+Received parameters:
+txn_id: ddfb356a54102d2d0c4955cc254b7d33
+ref_no: E64GPB4Y34
+status: S
+message: Test Over the Counter 2
+amount: 6666.00
+ccy: PHP
+procid: BOGX
+result=OK, affected rows: 1
+Received parameters:
+txn_id: ddfb356a54102d2d0c4955cc254b7d33
+ref_no: E64GPB4Y34
+status: S
+message: Test Over the Counter 2
+amount: 6666.00
+ccy: PHP
+procid: BOGX
+result=OK, affected rows: 0
+Received parameters:
+txn_id: ddfb356a54102d2d0c4955cc254b7d33
+ref_no: E64GPB4Y34
+status: S
+message: Test Over the Counter 2
+amount: 6666.00
+ccy: PHP
+procid: BOGX
+result=OK, affected rows: 1
+result=OK, affected rows: 0
+result=OK, affected rows: 0
+result=OK, affected rows: 1
+result=OK, affected rows: 1
+result=OK, affected rows: 1
