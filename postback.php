@@ -1,19 +1,18 @@
 <?php
 include('dbcon.php'); // This includes the database connection settings
 
-// Capture URL parameters
-$txnid = isset($_GET['txn_id']) ? $_GET['txn_id'] : null;
-$refno = isset($_GET['ref_no']) ? $_GET['ref_no'] : null;
-$status = isset($_GET['status']) ? $_GET['status'] : null;
-// $message = isset($_GET['message']) ? $_GET['message'] : null;
-$amount = isset($_GET['amount']) ? $_GET['amount'] : null;
-$ccy = isset($_GET['ccy']) ? $_GET['ccy'] : null;
-$procid = isset($_GET['procid']) ? $_GET['procid'] : null;
+// Capture POST parameters
+$txnid = isset($_POST['txn_id']) ? $_POST['txn_id'] : null;
+$refno = isset($_POST['ref_no']) ? $_POST['ref_no'] : null;
+$status = isset($_POST['status']) ? $_POST['status'] : null;
+$amount = isset($_POST['amount']) ? $_POST['amount'] : null;
+$ccy = isset($_POST['ccy']) ? $_POST['ccy'] : null;
+$procid = isset($_POST['procid']) ? $_POST['procid'] : null;
 
-// // Logging for debugging
-// $log_data = "Received parameters:\n";
-// $log_data .= "txn_id: $txnid\nref_no: $refno\nstatus: $status\nmessage: $message\namount: $amount\nccy: $ccy\nprocid: $procid\n";
-// file_put_contents('postback.log', $log_data, FILE_APPEND);
+// Logging for debugging (optional, recommended for testing)
+$log_data = "Received parameters:\n";
+$log_data .= "txn_id: $txnid\nref_no: $refno\nstatus: $status\namount: $amount\nccy: $ccy\nprocid: $procid\n";
+file_put_contents('postback.log', $log_data, FILE_APPEND);
 
 // Check if mandatory parameters are available
 if ($txnid && $refno && $status) {
@@ -34,15 +33,12 @@ if ($txnid && $refno && $status) {
         die("Transaction not found.");
     }
 
-    // http://localhost:8000/postback.php?txn_id=[id]&ref_no=[refno]&status=[S||P]&procid=[BOGX]
     // Update the transaction status in the database
     $stmt = $conn->prepare("UPDATE transactions SET status = ?, procid = ? WHERE txnid = ? AND refno = ?");
-    
     if (!$stmt) {
         file_put_contents('postback.log', "Prepare failed: (" . $conn->errno . ") " . $conn->error . "\n", FILE_APPEND);
         die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
     }
-
     $stmt->bind_param("ssss", $status, $procid, $txnid, $refno);
 
     if ($stmt->execute()) {
@@ -56,8 +52,8 @@ if ($txnid && $refno && $status) {
     $result = "result=FAIL: Missing parameters";
 }
 
-// // Logging for debugging
-// file_put_contents('postback.log', $result . "\n", FILE_APPEND);
+// Logging for debugging (optional, recommended for testing)
+file_put_contents('postback.log', $result . "\n", FILE_APPEND);
 
 echo $result;
 ?>

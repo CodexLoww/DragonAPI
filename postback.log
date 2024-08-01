@@ -66,3 +66,19 @@ result=OK, affected rows: 0
 result=OK, affected rows: 1
 result=OK, affected rows: 1
 result=OK, affected rows: 1
+Received parameters:
+txn_id: 
+ref_no: 
+status: 
+amount: 
+ccy: 
+procid: 
+result=FAIL: Missing parameters
+Received parameters:
+txn_id: 
+ref_no: 
+status: 
+amount: 
+ccy: 
+procid: 
+result=FAIL: Missing parameters
