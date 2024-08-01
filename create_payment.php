@@ -7,7 +7,7 @@ function create_payment($config, $conn) {
     $txnid = substr(md5(uniqid(rand(), true)), 0, 40);
     $url = $config['base_url'] . $txnid . '/post';
     $data = [
-        'Amount' => '6666.00',
+        'Amount' => '1234.00',
         'Currency' => 'PHP',
         'Description' => 'Test Over the Counter 2',
         'Email' => 'johnlouiecampos18@gmail.com',

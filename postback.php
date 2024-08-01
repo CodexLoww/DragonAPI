@@ -34,6 +34,7 @@ if ($txnid && $refno && $status) {
         die("Transaction not found.");
     }
 
+    // http://localhost:8000/postback.php?txn_id=[id]&ref_no=[refno]&status=[S||P]&procid=[BOGX]
     // Update the transaction status in the database
     $stmt = $conn->prepare("UPDATE transactions SET status = ?, procid = ? WHERE txnid = ? AND refno = ?");
     
