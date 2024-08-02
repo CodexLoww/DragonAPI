@@ -1,7 +1,7 @@
 <?php
-$hostname = "dragonpaytest.mysql.database.azure.com";
-$username = "user";
-$password = '+W-wcE"}bjd,)9)';
+$hostname = "dragonpaydb.cv4sk0iecdmp.us-east-1.rds.amazonaws.com";
+$username = "admin";
+$password = 'Jlc31Louie';
 $dbname = "transactions";
 
 $conn = new mysqli($hostname, $username, $password, $dbname);
